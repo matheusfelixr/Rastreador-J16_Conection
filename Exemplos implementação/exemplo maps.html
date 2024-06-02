@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rastreador com Google Maps</title>
+    <style>
+        /* Define a altura e a largura do mapa */
+        #map {
+            height: 80%;
+            width: 100%;
+        }
+        /* A página e o corpo devem ocupar 100% da altura */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        /* Estilo para a seção de links */
+        #links {
+            height: 20%;
+            overflow: auto;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <div id="links">
+        <a href="#" onclick="updateLocation({ lat: -23.550520, lng: -46.633308 })">São Paulo</a> |
+        <a href="#" onclick="updateLocation({ lat: -22.906847, lng: -43.172896 })">Rio de Janeiro</a> |
+        <a href="#" onclick="updateLocation({ lat: -15.7801, lng: -47.9292 })">Brasília</a> |
+        <a href="#" onclick="updateLocation({ lat: 40.712776, lng: -74.005974 })">Nova York</a> |
+        <a href="#" onclick="updateLocation({ lat: 34.052235, lng: -118.243683 })">Los Angeles</a>
+    </div>
+    <script>
+        var map;
+        var marker;
+
+        // Função de inicialização do mapa
+        function initMap() {
+            // Localização inicial do mapa
+            var initialLocation = { lat: -23.550520, lng: -46.633308 }; // Coordenadas de São Paulo, Brasil
+            // Cria um novo mapa e o insere no elemento #map
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: initialLocation
+            });
+            // Adiciona um marcador na localização inicial
+            marker = new google.maps.Marker({
+                position: initialLocation,
+                map: map
+            });
+        }
+
+        // Função para atualizar a localização do marcador
+        function updateLocation(newLocation) {
+            // Atualiza a posição do marcador
+            marker.setPosition(newLocation);
+            // Atualiza o centro do mapa
+            map.setCenter(newLocation);
+        }
+    </script>
+    <!-- Adiciona a biblioteca do Google Maps JavaScript API com a chave da API -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDvSPbVrY-dFWv8XwC8pnX6ykEFiRVAHb0&callback=initMap">
+    </script>
+</body>
+</html>
