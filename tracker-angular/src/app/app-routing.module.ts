@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 const routes: Routes = [
   {path:'', component: LoginComponent},
   {path:'home', component: HomeComponent},
+  { path: 'device-details/:id', component: DeviceDetailsComponent }
 ];
 
 @NgModule({
