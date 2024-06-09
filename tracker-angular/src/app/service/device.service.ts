@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { of } from 'rxjs';
-import { Device } from '../models/device.model';
+import { Device } from '../models/device.model'; // Importe o modelo de dispositivo, se existir
 
 @Injectable({
   providedIn: 'root'
 })
 export class DeviceService {
 
-  private apiUrl = 'https://api.example.com/devices'; // URL da API
+  private baseUrl = 'http://localhost:8080/devices'; // Coloque a URL do seu backend aqui
 
   constructor(private http: HttpClient) { }
 
-  getDevices(): Observable<Device[]> {
-   return this.http.get<Device[]>(this.apiUrl);
+  createDevice(device: Device): Observable<any> {
+    return this.http.post(`${this.baseUrl}/create`, device);
   }
 
-  getDeviceById(id: number): Observable<Device> {
-    return this.http.get<Device>(`${this.apiUrl}/${id}`);
+  getDevices(): Observable<any> {
+    return this.http.get(`${this.baseUrl}/all`);
+  }
+
+  getDeviceById(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${id}`);
   }
 }
