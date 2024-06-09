@@ -10,7 +10,7 @@
     flex-direction: column; /* Empilha os elementos verticalmente */
     align-items: center; /* Centraliza horizontalmente */
     width: 100%; /* Ocupa 100% da largura disponível */
-    max-width: 600px; /* Largura máxima */
+    max-width: 100%; /* Largura máxima igual à largura da imagem */
     height: auto; /* Altura automática para permitir que o conteúdo se ajuste */
     border-radius: 8px;
     overflow: hidden; /* Garante que a imagem não ultrapasse os limites do card */
@@ -22,6 +22,9 @@
   
   .device-image {
     margin-bottom: 10px; /* Espaço inferior para dispositivos móveis */
+    width: 60%; /* Reduz o tamanho da imagem para 60% da largura do card */
+    max-width: 300px; /* Largura máxima da imagem */
+    flex-shrink: 0; /* Evita que a imagem encolha mais do que seu tamanho original */
   }
   
   .device-image img {
@@ -51,5 +54,40 @@
   
   .info-item {
     font-size: 14px; /* Tamanho da fonte das informações */
+  }
+  
+  @media (min-width: 768px) {
+    .device-card {
+      flex-direction: row; /* Muda a direção para linha em telas maiores */
+      align-items: flex-start; /* Alinha os itens no início verticalmente */
+      height: auto; /* Volta à altura automática */
+    }
+    
+    .device-image {
+      margin-bottom: 0; /* Remova o espaço inferior na imagem */
+      margin-right: 20px; /* Adiciona espaçamento entre a imagem e o texto */
+      width: 210px; /* Largura automática para permitir que a imagem ajuste-se */
+    }
+    
+    .device-info {
+      text-align: left; /* Alinha o texto à esquerda */
+      width: auto; /* Largura automática para ajustar ao conteúdo */
+      flex: 1; /* Ocupa todo o espaço disponível */
+    }
+    
+    .info-group {
+        align-items: flex-start; /* Alinha as informações no início verticalmente */
+        flex-direction: row; /* Altera a direção para linha */
+        gap: 10px; /* Adiciona espaçamento entre os .info-item */
+        flex-wrap: wrap; /* Permite que os itens sejam envoltos para a próxima linha */
+      }
+    
+      .info-item {
+        width: calc(50% - 5px); /* Define a largura para ocupar metade do contêiner, subtraindo o espaçamento entre os itens */
+      }
+  
+    .device-info h3 {
+      text-align: center; /* Centraliza o texto */
+    }
   }
   
