@@ -9,14 +9,47 @@ import { Device } from '../../models/device.model';
   styleUrls: ['./device-details.component.css']
 })
 export class DeviceDetailsComponent implements OnInit {
-  device?: Device;
+  device: any ;
+  errors: string[] = []; 
 
-  constructor(private route: ActivatedRoute, private deviceService: DeviceService) { }
+
+  constructor(
+    private route: ActivatedRoute,
+    private deviceService: DeviceService
+  ) { }
 
   ngOnInit(): void {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.deviceService.getDeviceById(id).subscribe((device) => {
-      this.device = device;
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id !== null) {
+        this.getDeviceById(+id);
+      } else {
+        console.error('ID do dispositivo não está presente na URL');
+      }
     });
+  }
+
+  getDeviceById(id: number): void {
+    this.deviceService.getDeviceById(id).subscribe(response => {
+      if (response.data) {
+        this.device = response.data;
+        console.log(this.device)
+      } else {
+        if (response.errors && response.errors.length > 0) {
+          this.errors = response.errors;
+          this.showAlert();
+        } else {
+          console.error('Erro desconhecido ao buscar dispositivo.');
+        }
+      }
+    });
+  }
+
+  showAlert(): void {
+    let errorMessage = 'Erros encontrados:\n';
+    this.errors.forEach(error => {
+      errorMessage += `- ${error}\n`;
+    });
+    alert(errorMessage);
   }
 }

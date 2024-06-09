@@ -1,8 +1,34 @@
-<div *ngIf="device">
-    <h2>{{ device.nickname }}</h2>
-    <img [src]="device.imageUrl" alt="{{ device.nickname }}">
-    <p>Car Name: {{ device.carName }}</p>
-    <p>License Plate: {{ device.licensePlate }}</p>
-    <p>Latitude: {{ device.latitude }}</p>
-    <p>Longitude: {{ device.longitude }}</p>
-</div>
+<div class="device-container" *ngIf="device">
+    <div class="device-card">
+      <div class="device-image">
+        <img [src]="device.imageUrl" alt="{{ device.nickname }}">
+      </div>
+      <div class="device-info">
+        <h3>{{ device.nickname }}</h3>
+        <div class="info-group">
+          <div class="info-item">
+            <strong>Car Name:</strong> {{ device.carName }}
+          </div>
+          <div class="info-item">
+            <strong>License Plate:</strong> {{ device.licensePlate }}
+          </div>
+          <div class="info-item">
+            <strong>Latitude:</strong> {{ device.latitude }}
+          </div>
+          <div class="info-item">
+            <strong>Longitude:</strong> {{ device.longitude }}
+          </div>
+          <div class="info-item">
+            <strong>IMEI:</strong> {{ device.imei }}
+          </div>
+          <div class="info-item">
+            <strong>Chip:</strong> {{ device.chip }}
+          </div>
+          <div class="info-item">
+            <strong>Phone:</strong> {{ device.phone }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

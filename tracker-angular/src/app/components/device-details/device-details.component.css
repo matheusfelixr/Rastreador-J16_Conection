@@ -1,0 +1,55 @@
+.device-container {
+    display: flex;
+    justify-content: center; /* Centraliza o card na tela */
+    margin-top: 50px; /* Adiciona uma distância do topo da tela */
+    padding: 0 20px; /* Adiciona padding lateral para dispositivos móveis */
+  }
+  
+  .device-card {
+    display: flex;
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    width: 100%; /* Ocupa 100% da largura disponível */
+    max-width: 600px; /* Largura máxima */
+    height: auto; /* Altura automática para permitir que o conteúdo se ajuste */
+    border-radius: 8px;
+    overflow: hidden; /* Garante que a imagem não ultrapasse os limites do card */
+    background-color: #2c3e50; /* Cor de fundo do card */
+    color: white;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .device-image {
+    margin-bottom: 10px; /* Espaço inferior para dispositivos móveis */
+  }
+  
+  .device-image img {
+    width: 100%; /* Largura máxima da imagem */
+    height: auto; /* Altura automática para manter a proporção */
+    border-radius: 8px;
+  }
+  
+  .device-info {
+    width: 100%; /* Ocupa 100% da largura */
+    text-align: center; /* Centraliza o texto */
+  }
+  
+  .device-info h3 {
+    margin: 0; /* Remove a margem do título */
+    font-size: 24px; /* Aumenta o tamanho do nome do dispositivo */
+    font-weight: bold; /* Deixa o nome em negrito */
+    margin-bottom: 10px; /* Espaço entre o título e as informações abaixo */
+  }
+  
+  .info-group {
+    display: flex;
+    flex-direction: column; /* Empilha as informações verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    gap: 10px; /* Adiciona espaçamento entre os itens */
+  }
+  
+  .info-item {
+    font-size: 14px; /* Tamanho da fonte das informações */
+  }
+  
