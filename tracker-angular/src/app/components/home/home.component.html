@@ -1,10 +1,12 @@
 <div class="device-container">
-    <div *ngFor="let device of devices" class="device-card" (click)="onCardClick(device.id)" 
-         [ngStyle]="{'background-image': 'url(' + device.imageUrl + ')'}">
+    <div *ngFor="let device of devices" class="device-card" (click)="onCardClick(device.id)">
+      <div class="device-image">
+        <img [src]="device.imageUrl" alt="Car Image">
+      </div>
       <div class="device-info">
         <h3>{{ device.nickname }}</h3>
-        <p>{{ device.carName }}</p>
-        <p>{{ device.licensePlate }}</p>
+        <p>Car: {{ device.carName }}</p>
+        <p>License Plate: {{ device.licensePlate }}</p>
         <p>Lat: {{ device.latitude }}, Lon: {{ device.longitude }}</p>
       </div>
     </div>

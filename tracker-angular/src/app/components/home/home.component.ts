@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DeviceService, Device } from '../../service/device.service';
+import { DeviceService } from '../../service/device.service';
+import { Device } from '../../models/device.model';
 import { Router } from '@angular/router';
 
 @Component({

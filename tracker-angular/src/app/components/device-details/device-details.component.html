@@ -1,0 +1,8 @@
+<div *ngIf="device">
+    <h2>{{ device.nickname }}</h2>
+    <img [src]="device.imageUrl" alt="{{ device.nickname }}">
+    <p>Car Name: {{ device.carName }}</p>
+    <p>License Plate: {{ device.licensePlate }}</p>
+    <p>Latitude: {{ device.latitude }}</p>
+    <p>Longitude: {{ device.longitude }}</p>
+</div>
