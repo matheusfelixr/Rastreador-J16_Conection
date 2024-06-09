@@ -16,10 +16,41 @@ export class DeviceService {
   getDevices(): Observable<Device[]> {
  // Dados fictícios temporários
   const fakeDevices: Device[] = [
-    { id: 1, nickname: 'Device 1', carName: 'Car 1', licensePlate: 'ABC123', latitude: 10.1234, longitude: -20.5678, imageUrl: 'https://italo.com.br/wp-content/uploads/2024/01/garoto-de-tiro-medio-trapaceando-no-teste-da-escola.jpg' },
-    { id: 2, nickname: 'Device 2', carName: 'Car 2', licensePlate: 'DEF456', latitude: 20.5678, longitude: -30.9012, imageUrl: 'https://italo.com.br/wp-content/uploads/2024/01/garoto-de-tiro-medio-trapaceando-no-teste-da-escola.jpg' },
-    { id: 3, nickname: 'Device 3', carName: 'Car 3', licensePlate: 'GHI789', latitude: 30.9012, longitude: -40.1234, imageUrl: 'https://italo.com.br/wp-content/uploads/2024/01/garoto-de-tiro-medio-trapaceando-no-teste-da-escola.jpg' }
-  ];
+    { 
+      id: 1, 
+      nickname: 'Device 1', 
+      carName: 'Car 1', 
+      licensePlate: 'ABC123', 
+      latitude: 10.1234, 
+      longitude: -20.5678, 
+      imageUrl: 'https://italo.com.br/wp-content/uploads/2024/01/garoto-de-tiro-medio-trapaceando-no-teste-da-escola.jpg', 
+      imei: '123456789012345', // IMEI fictício
+      chip: '123456789', // Número do chip fictício
+      phone: '+1234567890' // Número de telefone fictício
+    },   { 
+      id: 1, 
+      nickname: 'Device 1', 
+      carName: 'Car 1', 
+      licensePlate: 'ABC123', 
+      latitude: 10.1234, 
+      longitude: -20.5678, 
+      imageUrl: 'https://italo.com.br/wp-content/uploads/2024/01/garoto-de-tiro-medio-trapaceando-no-teste-da-escola.jpg', 
+      imei: '123456789012345', // IMEI fictício
+      chip: '123456789', // Número do chip fictício
+      phone: '+1234567890' // Número de telefone fictício
+    },   { 
+      id: 1, 
+      nickname: 'Device 1', 
+      carName: 'Car 1', 
+      licensePlate: 'ABC123', 
+      latitude: 10.1234, 
+      longitude: -20.5678, 
+      imageUrl: 'https://italo.com.br/wp-content/uploads/2024/01/garoto-de-tiro-medio-trapaceando-no-teste-da-escola.jpg', 
+      imei: '123456789012345', // IMEI fictício
+      chip: '123456789', // Número do chip fictício
+      phone: '+1234567890' // Número de telefone fictício
+    },
+    ];
 
   console.log(fakeDevices)
 

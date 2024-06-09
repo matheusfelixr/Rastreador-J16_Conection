@@ -1,11 +1,12 @@
-export class Device {
-    constructor(
-      public id: number,
-      public nickname: string,
-      public carName: string,
-      public licensePlate: string,
-      public latitude: number,
-      public longitude: number,
-      public imageUrl: string
-    ) {}
-  }
+export interface Device {
+  id: number;
+  nickname: string;
+  carName: string;
+  licensePlate: string;
+  latitude: number;
+  longitude: number;
+  imageUrl: string;
+  imei: string; // Adiciona o IMEI
+  chip: string; // Adiciona o número do chip
+  phone: string; // Adiciona o número de telefone
+}

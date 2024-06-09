@@ -30,6 +30,9 @@
 .device-info {
   width: 80%; /* Largura das informações do dispositivo (lado direito do card) */
   padding: 20px;
+  display: flex; /* Permite que as informações sejam distribuídas igualmente */
+  flex-direction: column; /* Empilha as informações verticalmente */
+  justify-content: space-between; /* Distribui as informações igualmente na vertical */
 }
 
 .device-info h3 {
@@ -44,4 +47,13 @@
 
 .device-card:hover {
   background-color: #34495e; /* Cor de fundo ao passar o mouse */
+}
+
+/* Media query para telas maiores que 768px */
+@media only screen and (min-width: 768px) {
+  .device-info p {
+    width: 33%; /* Divide em três colunas iguais */
+    flex: 1; /* Permite que os elementos ocupem todo o espaço disponível */
+    margin: 0 5px; /* Adiciona margem entre os elementos */
+  }
 }
