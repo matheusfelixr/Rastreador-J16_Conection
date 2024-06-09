@@ -1,22 +1,22 @@
 .device-container {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Layout responsivo em grade */
+  gap: 20px; /* Espaçamento entre os cards */
   justify-content: center; /* Centraliza os cards na tela */
+  margin-top: 50px; /* Adiciona uma distância do topo da tela */
 }
 
 .device-card {
-  width: calc(100% - 20px); /* Largura total menos margens */
-  margin: 10px;
   border-radius: 8px;
   overflow: hidden; /* Garante que a imagem não ultrapasse os limites do card */
   background-color: #2c3e50; /* Cor de fundo do card */
   color: white;
   cursor: pointer; /* Altera o cursor ao passar por cima */
+  position: relative; /* Adiciona posição relativa para posicionamento absoluto do título */
 }
 
 .device-info {
-  padding: 10px; /* Adiciona espaço interno ao redor do conteúdo */
-  position: relative; /* Adiciona posição relativa para posicionamento absoluto do título */
+  padding: 20px; /* Espaçamento interno ao redor do conteúdo */
 }
 
 .device-info h3 {
@@ -24,7 +24,7 @@
   font-size: 24px; /* Aumenta o tamanho do nome do dispositivo */
   text-align: center; /* Centraliza o nome do dispositivo */
   position: absolute; /* Torna o título posicionado absolutamente */
-  top: 0; /* Alinha o título ao topo */
+  top: 20px; /* Alinha o título ao topo */
   left: 0; /* Alinha o título à esquerda */
   right: 0; /* Alinha o título à direita */
   background-color: rgba(0, 0, 0, 0.5); /* Adiciona fundo semitransparente ao título */
@@ -56,5 +56,5 @@
 
 .info-item {
   width: 100%; /* Ocupa toda a largura */
-  margin-bottom: 3px; /* Reduz ainda mais o espaço entre os info-items */
+  margin-bottom: 10px; /* Espaçamento entre os info-items */
 }
