@@ -1,15 +1,22 @@
 <div class="device-container">
     <div *ngFor="let device of devices" class="device-card" (click)="onCardClick(device.id)">
-      <div class="device-image">
-        <img [src]="device.imageUrl" alt="Car Image">
-      </div>
-      <div class="device-info">
-        <h3>{{ device.nickname }}</h3>
-        <p>Carro: {{ device.carName }}</p>
-        <p>Placa: {{ device.licensePlate }}</p>
-        <p>IMEI: {{ device.imei }}</p>
-        <p>Chip: {{ device.chip }}</p>
-        <p>Telefone: {{ device.phone }}</p>
-        <p>Localização Lat: {{ device.latitude }}, Lon: {{ device.longitude }}</p>
-      </div>
+        <div class="device-info">
+            <h3>{{ device.nickname }}</h3>
+            <div class="device-image">
+                <img [src]="device.imageUrl" alt="Car Image">
+            </div>
+            <div class="info-group">
+                <div class="info-item">
+                    <p>Carro: {{ device.carName }}</p>
+                    <p>Placa: {{ device.licensePlate }}</p>
+                    <p>IMEI: {{ device.imei }}</p>
+                </div>
+                <div class="info-item">
+                    <p>Chip: {{ device.chip }}</p>
+                    <p>Telefone: {{ device.phone }}</p>
+                    <p>Localização Lat: {{ device.latitude }}, Lon: {{ device.longitude }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
