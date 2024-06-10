@@ -1,5 +1,6 @@
 package com.mfr.tracker.dto.device;
 
+import com.mfr.tracker.dto.route.RouteDTO;
 import com.mfr.tracker.model.Device;
 import com.mfr.tracker.model.Route;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class DeviceDTO {
     private String chip;
     private String phone;
     private LocalDateTime createDate;
+    private List<RouteDTO> routes;
 
 
     public static Device convertToEntity(DeviceDTO any) {
@@ -36,6 +38,7 @@ public class DeviceDTO {
         ret.setChip(any.getChip());
         ret.setPhone(any.getPhone());
         ret.setCreateDate(any.getCreateDate());
+        ret.setRoutes(RouteDTO.convertToListEntity(any.getRoutes()));
 
         return ret;
     }
@@ -53,6 +56,7 @@ public class DeviceDTO {
         ret.setChip(any.getChip());
         ret.setPhone(any.getPhone());
         ret.setCreateDate(any.getCreateDate());
+        ret.setRoutes(RouteDTO.convertToListDTO(any.getRoutes()));
 
         return ret;
     }

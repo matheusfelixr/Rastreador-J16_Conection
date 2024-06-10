@@ -1,3 +1,5 @@
+import { Route } from "./route.model";
+
 export interface Device {
   id: number;
   nickname: string;
@@ -8,5 +10,7 @@ export interface Device {
   imageUrl: string;
   imei: string;
   chip: string;
-  phone: string; 
+  phone: string;
+  createDate: Date; 
+  routes: Route[]; 
 }
