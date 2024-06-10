@@ -1,10 +1,9 @@
 package com.mfr.tracker.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import java.util.List;
 
 @Data
 @Entity
@@ -22,4 +21,8 @@ public class Device {
     private String imei;
     private String chip;
     private String phone;
+
+    @OneToMany( fetch = FetchType.LAZY)
+    @JoinTable(name = "DEVICE_ROUTE", joinColumns = {@JoinColumn(name = "DEVICE_id")}, inverseJoinColumns = {@JoinColumn(name = "ROUTE_id")})
+    private List<Route> routes;
 }
