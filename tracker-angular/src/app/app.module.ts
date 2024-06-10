@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common'; 
 import { HttpClientModule } from '@angular/common/http';
-
+import {  GoogleMapsModule  } from '@angular/google-maps';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +22,8 @@ import { DeviceDetailsComponent } from './components/device-details/device-detai
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

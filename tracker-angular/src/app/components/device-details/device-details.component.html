@@ -1,34 +1,28 @@
 <div class="device-container" *ngIf="device">
-    <div class="device-card">
-      <div class="device-image">
-        <img [src]="device.imageUrl" alt="{{ device.nickname }}">
-      </div>
-      <div class="device-info">
-        <h3>{{ device.nickname }}</h3>
-        <div class="info-group">
-          <div class="info-item">
-            <strong>Car Name:</strong> {{ device.carName }}
-          </div>
-          <div class="info-item">
-            <strong>License Plate:</strong> {{ device.licensePlate }}
-          </div>
-          <div class="info-item">
-            <strong>Latitude:</strong> {{ device.latitude }}
-          </div>
-          <div class="info-item">
-            <strong>Longitude:</strong> {{ device.longitude }}
-          </div>
-          <div class="info-item">
-            <strong>IMEI:</strong> {{ device.imei }}
-          </div>
-          <div class="info-item">
-            <strong>Chip:</strong> {{ device.chip }}
-          </div>
-          <div class="info-item">
-            <strong>Phone:</strong> {{ device.phone }}
-          </div>
-        </div>
+  <div class="device-card">
+    <div class="device-image">
+      <img [src]="device.imageUrl" alt="{{ device.nickname }}">
+    </div>
+    <div class="device-info">
+      <h3>{{ device.nickname }}</h3>
+      <div class="info-group">
+        <div class="info-item"><strong>Car Name:</strong> {{ device.carName }}</div>
+        <div class="info-item"><strong>License Plate:</strong> {{ device.licensePlate }}</div>
+        <div class="info-item"><strong>Latitude:</strong> {{ device.latitude }}</div>
+        <div class="info-item"><strong>Longitude:</strong> {{ device.longitude }}</div>
+        <div class="info-item"><strong>IMEI:</strong> {{ device.imei }}</div>
+        <div class="info-item"><strong>Chip:</strong> {{ device.chip }}</div>
+        <div class="info-item"><strong>Phone:</strong> {{ device.phone }}</div>
       </div>
     </div>
   </div>
-  
+</div>
+
+<!-- Container do mapa com altura definida e rolagem vertical -->
+<div class="map-container" style="height: 600px; overflow-y: auto;">
+  <!-- Mapa do Google -->
+  <google-map height="100%" width="100%" [center]="center" [zoom]="zoom">
+    <map-polyline [path]="polylinePath" [options]="polylineOptions"></map-polyline>
+    <map-marker *ngFor="let marker of markers" [position]="marker"></map-marker>
+  </google-map>
+</div>

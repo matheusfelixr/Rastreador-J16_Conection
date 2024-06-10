@@ -90,4 +90,6 @@
       text-align: center; /* Centraliza o texto */
     }
   }
-  
+  .map-container {
+    margin-top: 20px;
+  }
