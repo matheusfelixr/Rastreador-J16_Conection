@@ -1,6 +1,7 @@
 package com.mfr.tracker.controller;
 
 import com.mfr.tracker.dto.config.ResponseApi;
+import com.mfr.tracker.dto.device.DeviceDTO;
 import com.mfr.tracker.model.Device;
 import com.mfr.tracker.service.DeviceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,17 +18,17 @@ public class DeviceController {
     private DeviceService deviceService;
 
     @PostMapping("/create")
-    public ResponseApi<Device> createDevice(@RequestBody Device device) {
+    public ResponseApi<DeviceDTO> createDevice(@RequestBody DeviceDTO device) {
         return deviceService.createDevice(device);
     }
 
     @GetMapping("/all")
-    public ResponseApi<List<Device>> getDevices() {
+    public ResponseApi<List<DeviceDTO>> getDevices() {
         return deviceService.getDevices();
     }
 
     @GetMapping("/{id}")
-    public ResponseApi<Device> getDeviceById(@PathVariable Long id) {
+    public ResponseApi<DeviceDTO> getDeviceById(@PathVariable Long id) {
         return deviceService.getDeviceById(id);
     }
 }

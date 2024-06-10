@@ -3,6 +3,7 @@ package com.mfr.tracker.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -21,6 +22,7 @@ public class Device {
     private String imei;
     private String chip;
     private String phone;
+    private LocalDateTime createDate;
 
     @OneToMany( fetch = FetchType.LAZY)
     @JoinTable(name = "DEVICE_ROUTE", joinColumns = {@JoinColumn(name = "DEVICE_id")}, inverseJoinColumns = {@JoinColumn(name = "ROUTE_id")})
@@ -29,7 +31,7 @@ public class Device {
     public Device() {
     }
 
-    public Device(Long id, String nickname, String carName, String licensePlate, Double latitude, Double longitude, String imageUrl, String imei, String chip, String phone, List<Route> routes) {
+    public Device(Long id, String nickname, String carName, String licensePlate, Double latitude, Double longitude, String imageUrl, String imei, String chip, String phone, List<Route> routes, LocalDateTime createDate) {
         this.id = id;
         this.nickname = nickname;
         this.carName = carName;
@@ -41,6 +43,7 @@ public class Device {
         this.chip = chip;
         this.phone = phone;
         this.routes = routes;
+        this.createDate = createDate;
     }
 
     public Device(Long id) {
