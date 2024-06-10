@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DeviceService {
@@ -17,7 +18,7 @@ public class DeviceService {
     public ResponseApi<Device> createDevice(Device device) {
         ResponseApi<Device> response = new ResponseApi<>();
         try {
-            Device savedDevice = deviceRepository.save(device);
+            Device savedDevice = this.save(device);
             response.setData(savedDevice);
         } catch (Exception e) {
             response.getErrors().add("Failed to create device: " + e.getMessage());
@@ -49,5 +50,13 @@ public class DeviceService {
             response.getErrors().add("Failed to retrieve device: " + e.getMessage());
         }
         return response;
+    }
+
+    public Optional<Device> findById(Long deviceId) {
+        return deviceRepository.findById(deviceId);
+    }
+
+    public Device save(Device device) {
+        return deviceRepository.save(device);
     }
 }

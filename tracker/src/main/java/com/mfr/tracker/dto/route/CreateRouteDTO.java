@@ -17,15 +17,14 @@ public class CreateRouteDTO {
     public static Route convertToEntity(CreateRouteDTO any) {
         Route ret = new Route();
         ret.setLatitude(any.getLatitude());
-        ret.setLatitude(any.getLongitude());
-       // ret.setDevice(new Device(any.getDeviceId()));
+        ret.setLongitude(any.getLongitude());
         return ret;
     }
 
     public static CreateRouteDTO convertToDTO(Route any) {
         CreateRouteDTO ret = new CreateRouteDTO();
         ret.setLatitude(any.getLatitude());
-        ret.setLatitude(any.getLongitude());
+        ret.setLongitude(any.getLongitude());
         ret.setDeviceId(any.getId());
         return ret;
     }
