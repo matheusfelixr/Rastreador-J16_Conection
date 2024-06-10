@@ -9,6 +9,7 @@ import com.mfr.tracker.repository.RouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -28,17 +29,15 @@ public class RouteService {
             Optional<Device> optionalDevice = deviceRepository.findById(routeDTO.getDeviceId());
             if (optionalDevice.isPresent()) {
                 Device device = optionalDevice.get();
-                Route route = new Route();
-                route.setTimeLocal(routeDTO.getTimeLocal());
-                route.setTimeBrasilia(routeDTO.getTimeBrasilia());
-                route.setLatitude(routeDTO.getLatitude());
-                route.setLongitude(routeDTO.getLongitude());
-                Route savedRoute = routeRepository.save(route);
+                Route route = CreateRouteDTO.convertToEntity(routeDTO);
+                route.setTimeLocal(LocalDateTime.now());
+                route.setTimeBrasilia(LocalDateTime.now());
+                Route routeSave = routeRepository.save(route);
+                device.getRoutes().add(route);
 
-                device.getRoutes().add(savedRoute);
                 deviceRepository.save(device);
-
-                response.setData(savedRoute);
+                
+                response.setData(routeSave);
             } else {
                 response.getErrors().add("Device not found with id: " + routeDTO.getDeviceId());
             }
@@ -48,4 +47,14 @@ public class RouteService {
         return response;
     }
 
+    public ResponseApi<List<Route>> getRoutes() {
+        ResponseApi<List<Route>> response = new ResponseApi<>();
+        try {
+            List<Route> routes = routeRepository.findAll();
+            response.setData(routes);
+        } catch (Exception e) {
+            response.getErrors().add("Failed to retrieve routes: " + e.getMessage());
+        }
+        return response;
+    }
 }

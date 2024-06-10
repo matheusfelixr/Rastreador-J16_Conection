@@ -23,4 +23,9 @@ public class RouteController {
         return routeService.createRoute(route);
     }
 
+    @GetMapping("/all")
+    public ResponseApi<List<Route>> getRoutes() {
+        return routeService.getRoutes();
+    }
+
 }

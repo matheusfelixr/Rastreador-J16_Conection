@@ -8,15 +8,13 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 public class Route {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private LocalDateTime timeLocal;
     private LocalDateTime timeBrasilia;
-    private Long latitude;
-    private Long longitude;
+    private Double latitude;
+    private Double longitude;
 
-    @ManyToOne
-    private Device device;
 }
